@@ -1,6 +1,6 @@
 # NASA Astronomical Picture of the Day (APOD)
 
-A simple [Flutter](https://flutter.dev/) Application that shows a list of Astronomical Pictures in chronological order fetched from [NASA APOD API](https://apod.nasa.gov/apod/astropix.html) 🚀🛰
+A simple [Flutter](https://flutter.dev/) Application that shows a list of Astronomical Pictures in chronological order fetched from [NASA APOD API](https://apod.nasa.gov/apod/astropix.html) ☄
 
 ## Screenshots
 <img src="screenshots/screenshot.gif" alt="Demo" width="200"/>
