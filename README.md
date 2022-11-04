@@ -3,7 +3,7 @@
 A simple [Flutter](https://flutter.dev/) Application that shows a list of Astronomical Pictures in chronological order fetched from [NASA APOD API](https://apod.nasa.gov/apod/astropix.html) 🚀🛰
 
 ## Screenshots
-![Home and Details Page](screenshots/screenshot.gif)
+<img src="screenshots/screenshot.gif" alt="Demo" width="200"/>
 
 ## Getting Started
 Make sure you grab the **API_KEY** from [NASA API](https://api.nasa.gov/).
