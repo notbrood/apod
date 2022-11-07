@@ -15,8 +15,8 @@ class Welcome {
     this.hdurl,
     this.mediaType,
     this.serviceVersion,
-    this.title,
-    this.url,
+    required this.title,
+    required this.url,
   });
 
   String? copyright;
@@ -25,8 +25,8 @@ class Welcome {
   String? hdurl;
   String? mediaType;
   String? serviceVersion;
-  String? title;
-  String? url;
+  String title;
+  String url;
 
   factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
         copyright: json["copyright"],

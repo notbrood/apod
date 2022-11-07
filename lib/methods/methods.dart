@@ -30,6 +30,9 @@ Future<Welcome> dateApod(DateTime date) async {
     return welcomeFromJson(response.body);
   }
   else{
+    if(response.statusCode == 404){
+      return dateApod(date.subtract(Duration(days: 1)));
+    }
     return Welcome(title: 'Error', copyright: 'Aman Jain', date: DateTime.tryParse('12/08/2003'), explanation: 'You got an error', url: 'https://i.imgur.com/dLfPsSw.png');
   }
 }

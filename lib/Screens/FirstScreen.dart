@@ -5,15 +5,15 @@ import 'package:stretchy_header/stretchy_header.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class FirstScreen extends StatefulWidget {
-  FirstScreen({Key? key, this.date}) : super(key: key);
-  DateTime? date;
+  FirstScreen({Key? key, required this.date}) : super(key: key);
+  DateTime date;
   @override
-  State<FirstScreen> createState() => _FirstScreenState(date: date!);
+  State<FirstScreen> createState() => _FirstScreenState(date: date);
 }
 
 bool haiKya = false;
-Welcome? x;
-Widget? topWidget;
+late Welcome x;
+Widget topWidget = Container();
 class _FirstScreenState extends State<FirstScreen> {
   DateTime date;
   _FirstScreenState({required this.date});
@@ -64,7 +64,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          x!.title!,
+                          x.title,
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.4),
                               fontSize: 18,
@@ -77,7 +77,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   blurContent: true,
                   blurColor: Colors.black,
                   headerHeight: 250,
-                  header: topWidget!,
+                  header: topWidget,
                 ),
                 itemCount: 1,
                 itemBuilder: (context, i) {
@@ -87,7 +87,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          x!.explanation!,
+                          x.explanation!,
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.4),
                               fontSize: 15,
@@ -103,7 +103,7 @@ class _FirstScreenState extends State<FirstScreen> {
                           onTap: () async {
                             DateTime? pickedDate = await showDatePicker(
                               context: context,
-                              initialDate: DateTime.now(),
+                              initialDate: date,
                               firstDate: DateTime(1996),
                               lastDate: DateTime.now(),
                             );
@@ -136,16 +136,16 @@ class _FirstScreenState extends State<FirstScreen> {
 
   Future<String> waitingForYou() async {
       x = await dateApod(date);
-      if(x!.mediaType == 'image'){
+      if(x.mediaType == 'image'){
         topWidget = Image(
-          image: NetworkImage(x!.url!),
+          image: NetworkImage(x.url),
           fit: BoxFit.cover,
         );
       }
-      else if(x!.mediaType == 'video'){
-        var url = x!.url!;
+      else if(x.mediaType == 'video'){
+        var url = x.url;
         url = url.substring(29, 41);
-        YoutubePlayerController _controller = YoutubePlayerController(
+        YoutubePlayerController controller = YoutubePlayerController(
           initialVideoId: url,
           flags: const YoutubePlayerFlags(
             autoPlay: true,
@@ -153,8 +153,8 @@ class _FirstScreenState extends State<FirstScreen> {
             mute: true,
           ),
         );
-        topWidget = YoutubePlayer(controller: _controller,
-          progressColors: ProgressBarColors(backgroundColor: Colors.black, handleColor: Colors.white, playedColor: Colors.red),
+        topWidget = YoutubePlayer(controller: controller,
+          progressColors: const ProgressBarColors(backgroundColor: Colors.black, handleColor: Colors.white, playedColor: Colors.red),
           progressIndicatorColor: Colors.red,
         );
     }
