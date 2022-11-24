@@ -18,4 +18,3 @@ From here onwards its pretty straight forward. Just `cd` into the root directory
 - [stretchy_header](https://pub.dev/packages/stretchy_header)
 - [youtube_player_flutter](https://pub.dev/packages/youtube_player_flutter)
 
-# Download the apk [here](https://drive.google.com/file/d/1HXPf0RgQFyw-vMSTTEStesI8dTVP3TAB/view?usp=sharing)
